@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">IsmanusisKurjeris</string>
+    <string name="Prisijungti">Prisijungti</string>
+    <string name="Slaptazodis">Slaptažodis</string>
+    <string name="PrisijungimoVardas">Prisijungimo vardas</string>
+    <string name="SiuntosTikrinimas">SIUNTOS TIKRINIMAS</string>
+    <string name="SiuntosNr">Siuntos numeris</string>
+    <string name="Ieskoti">Ieškoti siuntos</string>
 </resources>
