@@ -1,5 +1,6 @@
 package com.ismanusiskurjeris.ismanusiskurjeris
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -22,6 +23,11 @@ class Main2Activity : AppCompatActivity() {
         searchButton.setOnClickListener {
 
             val packageId = findViewById<EditText>(R.id.packageId) as EditText
+            //Siuntimui i duombaze packageId.text.toString()
+
+            setContentView(R.layout.activity_main3)
+            val intent = Intent(this, Main3Activity::class.java)
+            startActivity(intent)
         }
 
 
