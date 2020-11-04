@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:alwaysDrawnWithCache="false"
         android:animateLayoutChanges="false"
-        android:background="#EFA1E4"
+        android:background="#5BEFA1E4"
         tools:context=".MainActivity">
 
     <Button
@@ -52,7 +52,7 @@
             android:layout_marginTop="228dp"
             android:layout_marginEnd="8dp"
             android:ems="10"
-            android:hint="@string/PrisijungimoVardas"
+            android:hint="@+string/PrisijungimoVardas"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
