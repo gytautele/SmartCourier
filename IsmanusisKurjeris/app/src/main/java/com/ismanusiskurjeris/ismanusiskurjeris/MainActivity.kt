@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
             //Siuntimui i duombaze username.text.toString()
             //Siuntimui i duombaze password.text.toString()
 
-            setContentView(R.layout.activity_main2)
             val intent = Intent(this, Main2Activity::class.java)
             startActivity(intent)
         }

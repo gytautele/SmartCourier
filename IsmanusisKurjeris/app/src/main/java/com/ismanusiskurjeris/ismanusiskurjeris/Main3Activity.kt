@@ -21,7 +21,6 @@ class Main3Activity : AppCompatActivity() {
             //val x = findViewById<TextView>(R.id.coordinate) as TextView
             //Send: intent.putExtra("x", x.text.toString())
 
-            setContentView(R.layout.activity_main4)
             val intent = Intent(this, Main4Activity::class.java)
             startActivity(intent)
         }

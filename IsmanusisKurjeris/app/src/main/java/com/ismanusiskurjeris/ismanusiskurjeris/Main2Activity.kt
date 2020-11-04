@@ -25,7 +25,6 @@ class Main2Activity : AppCompatActivity() {
             val packageId = findViewById<EditText>(R.id.packageId) as EditText
             //Siuntimui i duombaze packageId.text.toString()
 
-            setContentView(R.layout.activity_main3)
             val intent = Intent(this, Main3Activity::class.java)
             startActivity(intent)
         }
