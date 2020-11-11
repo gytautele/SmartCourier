@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -18,7 +19,6 @@
             android:text="@string/SiuntosPaieska"
             android:textColor="#000000"
             android:textSize="30sp"
-
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -84,44 +84,62 @@
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <ImageButton
             android:id="@+id/ieskoti"
             android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="@string/Paieska"
+            android:layout_height="80dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/search_icon_foreground"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/siuntos"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.993" />
 
-    <Button
-            android:id="@+id/siuntos"
-            android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="Mano Siuntos"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ieskoti" />
-
-    <Button
-            android:id="@+id/nustatymai"
-            android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="Nustatimai"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/paskyra" />
-
-    <Button
-            android:id="@+id/atsijungti"
-            android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="Atsijungti"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/nustatymai" />
-
-    <Button
+    <ImageButton
             android:id="@+id/paskyra"
             android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="Paskyra"
+            android:layout_height="80dp"
+            android:src="@drawable/my_account_icon_foreground"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/siuntos" />
+            app:layout_constraintStart_toEndOf="@+id/siuntos"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.993" />
+
+    <ImageButton
+            android:id="@+id/nustatymai"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/tools_icon_foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/atsijungti"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/paskyra"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.993" />
+
+    <ImageButton
+            android:id="@+id/atsijungti"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/poweroff_icon_foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.993" />
+
+    <ImageButton
+            android:id="@+id/siuntos"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/dispach_icon_foreground"
+            app:layout_constraintStart_toEndOf="@+id/ieskoti"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.993"
+            tools:layout_editor_absoluteX="84dp" />
 
 </android.support.constraint.ConstraintLayout>
