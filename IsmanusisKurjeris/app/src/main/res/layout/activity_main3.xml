@@ -43,12 +43,15 @@
 
     <TableLayout
 
-            android:layout_width="321dp"
+            android:layout_width="match_parent"
             android:layout_height="244dp"
             android:gravity="center"
             android:stretchColumns="0.3,1"
-            tools:layout_editor_absoluteX="48dp"
-            tools:layout_editor_absoluteY="249dp">
+            app:layout_constraintBottom_toTopOf="@+id/mapButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:ignore="MissingConstraints">
 
         <TableRow
                 android:layout_width="fill_parent"
@@ -80,7 +83,7 @@
         </TableRow>
 
         <TableRow
-                android:layout_width=""
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
@@ -103,7 +106,7 @@
                     android:layout_margin="1dp"
                     android:background="#FFFFFF"
                     android:gravity="center"
-                    android:text=" Text"
+                    android:text="Text"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </TableRow>
@@ -164,9 +167,45 @@
                     android:gravity="center"
                     android:text=" Text"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
         </TableRow>
-
-
     </TableLayout>
+    <Button
+            android:id="@+id/ieskoti"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="@string/Paieska"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+            android:id="@+id/siuntos"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="Mano Siuntos"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ieskoti" />
+
+    <Button
+            android:id="@+id/nustatymai"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="Nustatimai"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/paskyra" />
+
+    <Button
+            android:id="@+id/atsijungti"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="Atsijungti"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nustatymai" />
+
+    <Button
+            android:id="@+id/paskyra"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="Paskyra"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/siuntos" />
 </android.support.constraint.ConstraintLayout>

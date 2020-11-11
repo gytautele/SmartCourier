@@ -6,10 +6,10 @@
     <item android:id="@+id/help"
             android:title="@string/Zemelapis"/>
 
-    <item android:id="@+id/help"
+    <item android:id="@+id/help1"
             android:title="@string/Nustatymai"/>
 
-    <item android:id="@+id/help"
+    <item android:id="@+id/help2"
             android:title="@string/Atsijungti"/>
 </menu>
 
