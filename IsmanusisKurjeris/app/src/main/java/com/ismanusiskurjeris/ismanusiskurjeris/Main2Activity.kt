@@ -18,22 +18,12 @@ class Main2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-            fun onCreateOptionsMenu(menu: Menu):Boolean {
-                val inflater = getMenuInflater()
-                inflater.inflate(R.menu.my_options_menu, menu)
-                return true
-            }
-
-        //Send: intent.putExtra("Username", username.text.toString())
-        //Receive: var strUser: String = intent.getStringExtra("Username")
-        //Toast.makeText(applicationContext, "Puslapis veikia", Toast.LENGTH_SHORT).show()
-
         val searchButton = findViewById<Button>(R.id.searchButton)
         val searchButton2 = findViewById<Button>(R.id.searchButton2)
         searchButton.setOnClickListener {
             val packageId = findViewById<EditText>(R.id.packageId) as EditText
-            //Siuntimui i duombaze packageId.text.toString()
             val intent = Intent(this, Main3Activity::class.java)
+            intent.putExtra("packageID", packageId.text.toString())
             startActivity(intent)
         }
 

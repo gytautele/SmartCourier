@@ -3,9 +3,11 @@ package com.ismanusiskurjeris.ismanusiskurjeris
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main3.*
 
 class Main3Activity : AppCompatActivity() {
@@ -14,14 +16,53 @@ class Main3Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
 
+        val packageID = intent.getStringExtra("packageID")
+        val db = dbManager(this)
+        val res = db.getdata(packageID)
+        var clientID = ""
+        var siuntinioX = ""
+        var siuntinioY = ""
+        var klientoX = ""
+        var klientoY = ""
+
+        if(res.getCount() == 0){
+            Toast.makeText(this, "Siunta neegzistuoja", Toast.LENGTH_SHORT).show()
+        }
+        val buffer = StringBuffer();
+        while(res.moveToNext()){
+            buffer.append("Siuntinio X koordinate: "+res.getString(0)+"\n")
+            buffer.append("Siuntinio Y koordinate: "+res.getString(1)+"\n")
+            siuntinioX = res.getString(0)
+            siuntinioY = res.getString(1)
+            clientID = res.getString(2)
+        }
+        val res1 = db.getdata1(clientID)
+        if (res1.getCount() == 0){
+            Toast.makeText(this, "Siunta neturi siuntejo", Toast.LENGTH_SHORT).show();
+        }
+        while(res1.moveToNext()){
+            buffer.append("Gavejo vardas: "+res1.getString(0)+"\n")
+            buffer.append("Gavejo pavarde: "+res1.getString(1)+"\n")
+            buffer.append("Gavejo numeris: "+res1.getString(2)+"\n")
+            buffer.append("Gavejo X koordinate: "+res1.getString(3)+"\n")
+            buffer.append("GavejoY koordinate: "+res1.getString(4)+"\n")
+            klientoX = res1.getString(3)
+            klientoY = res1.getString(4)
+        }
+
+        val builder = AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Siuntos informacija");
+        builder.setMessage(buffer.toString());
+        builder.show()
+
         val mapButton = findViewById<Button>(R.id.mapButton)
         mapButton.setOnClickListener {
-
-            //Isimti coordinates ir nusiust i kita page
-            //val x = findViewById<TextView>(R.id.coordinate) as TextView
-            //Send: intent.putExtra("x", x.text.toString())
-
             val intent = Intent(this, Main4Activity::class.java)
+            intent.putExtra("siuntiniox", siuntinioX)
+            intent.putExtra("siuntinioy", siuntinioY)
+            intent.putExtra("klientox", klientoX)
+            intent.putExtra("klientoy", klientoY)
             startActivity(intent)
         }
 

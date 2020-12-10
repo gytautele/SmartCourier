@@ -24,32 +24,20 @@ class MainActivity : AppCompatActivity() {
             //Siuntimui i duombaze password.text.toString()
 
             val db = dbManager(this)
-            val checkinsertdata: Boolean = db.insertuserdata(username.text.toString(), password.text.toString(), "LABAS")
-            if (checkinsertdata == true) Toast.makeText(this@MainActivity, "New Entry Inserted", Toast.LENGTH_SHORT).show()
-            else Toast.makeText(this@MainActivity, "New Entry Not Inserted", Toast.LENGTH_SHORT).show()
+//            val checkinsertdata: Boolean = db.insertuserdata(username.text.toString(), password.text.toString(), "LABAS")
+//            if (checkinsertdata == true) Toast.makeText(this@MainActivity, "New Entry Inserted", Toast.LENGTH_SHORT).show()
+//            else Toast.makeText(this@MainActivity, "New Entry Not Inserted", Toast.LENGTH_SHORT).show()
 
-            val res = db.getdata();
-            if(res.getCount()==0){
-                Toast.makeText(this, "No Entry Exists", Toast.LENGTH_SHORT).show();
+            val login = db.LogIn(username.text.toString(), password.text.toString())
+            if (login) {
+                val intent = Intent(this, Main2Activity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Sveiki prisijunge: " + username.text.toString(), Toast.LENGTH_SHORT).show();
             }
-            val buffer = StringBuffer();
-            while(res.moveToNext()){
-                buffer.append("Name :"+res.getString(0)+"\n");
-                buffer.append("Contact :"+res.getString(1)+"\n");
-                buffer.append("Date of Birth :"+res.getString(2)+"\n\n");
+            else {
+                Toast.makeText(this, "Tokio vartotojo nera", Toast.LENGTH_SHORT).show();
             }
-
-            val builder = AlertDialog.Builder(this);
-            builder.setCancelable(true);
-            builder.setTitle("User Entries");
-            builder.setMessage(buffer.toString());
-            builder.show()
-
-
             //Toast.makeText(this, db.addUser(username.text.toString(), password.text.toString()), Toast.LENGTH_LONG).show()
-
-            val intent = Intent(this, Main2Activity::class.java)
-            startActivity(intent)
         }
     }
 }

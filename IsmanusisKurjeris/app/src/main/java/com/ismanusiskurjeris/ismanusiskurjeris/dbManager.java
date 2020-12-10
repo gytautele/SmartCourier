@@ -18,7 +18,7 @@ public class dbManager extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase DB, int i, int i1) {
-        DB.execSQL("drop Table if exists Userdetails");
+        //DB.execSQL("drop Table if exists Userdetails");
     }
 
     public Boolean insertuserdata(String name, String contact, String dob)
@@ -52,7 +52,18 @@ public class dbManager extends SQLiteOpenHelper {
             }
         } else {
             return false;
-        }}
+        }
+    }
+
+    public Boolean LogIn(String username, String password) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from Users where LogInID = ? and Password = ?", new String[]{username, password});
+        if (cursor.getCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     public Boolean deletedata (String name)
@@ -69,14 +80,16 @@ public class dbManager extends SQLiteOpenHelper {
         } else {
             return false;
         }
-
     }
 
-    public Cursor getdata ()
-    {
+    public Cursor getdata (String packageID) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select * from Userdetails", null);
+        Cursor cursor = DB.rawQuery("Select Package.LocationX, Package.LocationY, ClientID from Package where ID = ? ", new String[]{packageID}, null);
         return cursor;
-
+    }
+    public Cursor getdata1 (String clientID) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select Name, LastName, PhoneNumber, LocationX, LocationY from Client where Client.ID = ?", new String[]{clientID}, null);
+        return cursor;
     }
 }
