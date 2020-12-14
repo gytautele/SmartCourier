@@ -1,9 +1,9 @@
 package com.ismanusiskurjeris.ismanusiskurjeris
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -58,7 +58,7 @@ class Main3Activity : AppCompatActivity() {
 
         val mapButton = findViewById<Button>(R.id.mapButton)
         mapButton.setOnClickListener {
-            val intent = Intent(this, Main4Activity::class.java)
+            val intent = Intent(this, MapsActivity::class.java)
             intent.putExtra("siuntiniox", siuntinioX)
             intent.putExtra("siuntinioy", siuntinioY)
             intent.putExtra("klientox", klientoX)
@@ -89,7 +89,7 @@ class Main3Activity : AppCompatActivity() {
             startActivity(intent)
         }
         paskyra.setOnClickListener {
-            val intent = Intent(this, Main4Activity::class.java)
+            val intent = Intent(this, MapsActivity::class.java)
             startActivity(intent)
         }
     }

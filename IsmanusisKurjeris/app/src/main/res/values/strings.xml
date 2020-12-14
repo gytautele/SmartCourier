@@ -14,4 +14,5 @@
     <string name="SiuntosInfo">Siuntos informacija</string>
     <string name="Siuntejas">Siuntėjas</string>
     <string name="Gavejas">Gavėjas</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

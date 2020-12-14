@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -50,4 +50,44 @@
             app:layout_constraintVertical_bias="0.453" />
 
 
-</android.support.constraint.ConstraintLayout>
+
+    <Button
+            android:id="@+id/ieskoti"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="@string/Paieska"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+            android:id="@+id/siuntos"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="Mano Siuntos"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ieskoti" />
+
+    <Button
+            android:id="@+id/nustatymai"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="Nustatimai"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/paskyra" />
+
+    <Button
+            android:id="@+id/atsijungti"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="Atsijungti"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nustatymai" />
+
+    <Button
+            android:id="@+id/paskyra"
+            android:layout_width="80dp"
+            android:layout_height="104dp"
+            android:text="Paskyra"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/siuntos" />
+</androidx.constraintlayout.widget.ConstraintLayout>

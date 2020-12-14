@@ -1,9 +1,9 @@
 package com.ismanusiskurjeris.ismanusiskurjeris
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -19,11 +19,17 @@ class Main2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         val searchButton = findViewById<Button>(R.id.searchButton)
-        val searchButton2 = findViewById<Button>(R.id.searchButton2)
+        val qrCode = findViewById<Button>(R.id.qrCode)
+
         searchButton.setOnClickListener {
             val packageId = findViewById<EditText>(R.id.packageId) as EditText
             val intent = Intent(this, Main3Activity::class.java)
             intent.putExtra("packageID", packageId.text.toString())
+            startActivity(intent)
+        }
+
+        qrCode.setOnClickListener {
+            val intent = Intent(this, CaptureActivity::class.java)
             startActivity(intent)
         }
 
@@ -50,7 +56,7 @@ class Main2Activity : AppCompatActivity() {
             startActivity(intent)
         }
         paskyra.setOnClickListener {
-            val intent = Intent(this, Main4Activity::class.java)
+            val intent = Intent(this, MapsActivity::class.java)
             startActivity(intent)
         }
     }
