@@ -104,22 +104,12 @@
             android:id="@+id/paskyra"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/tab"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/siuntos"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.992" />
-
-    <Button
-            android:id="@+id/nustatymai"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/atsijungti"
-            app:layout_constraintHorizontal_bias="0.172"
-            app:layout_constraintStart_toEndOf="@+id/paskyra"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.992" />
+            app:layout_constraintVertical_bias="0.993" />
 
     <Button
             android:id="@+id/atsijungti"
@@ -136,11 +126,10 @@
             android:id="@+id/siuntos"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginStart="4dp"
-            android:background="@drawable/map"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/placeholder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ieskoti"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.992" />/>
-
+            app:layout_constraintVertical_bias="0.993" />
 </android.support.constraint.ConstraintLayout>

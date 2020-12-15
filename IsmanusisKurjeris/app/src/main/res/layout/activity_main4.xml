@@ -10,41 +10,48 @@
     <Button
             android:id="@+id/ieskoti"
             android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="@string/Paieska"
+            android:layout_height="80dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-            android:id="@+id/siuntos"
-            android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="Mano Siuntos"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ieskoti" />
-
-    <Button
-            android:id="@+id/nustatymai"
-            android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="Nustatimai"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/paskyra" />
-
-    <Button
-            android:id="@+id/atsijungti"
-            android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="Atsijungti"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/nustatymai" />
+            app:layout_constraintEnd_toStartOf="@+id/siuntos"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.993"
+            android:background="@drawable/search"/>
 
     <Button
             android:id="@+id/paskyra"
             android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="Paskyra"
+            android:layout_height="80dp"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/tab"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/siuntos" />
+            app:layout_constraintStart_toEndOf="@+id/siuntos"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.993" />
+
+    <Button
+            android:id="@+id/atsijungti"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.993"
+            android:background="@drawable/exit"/>
+
+    <Button
+            android:id="@+id/siuntos"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ieskoti"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.993" />
 
 </android.support.constraint.ConstraintLayout>
