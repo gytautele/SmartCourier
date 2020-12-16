@@ -87,7 +87,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mLocationRequest.fastestInterval = 120000
         mLocationRequest.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
 
-        if (intent.getStringExtra("siuntinioX") != null) {
+        //if (intent.getStringExtra("siuntinioX") != null) {
             val siuntinioX = intent.getStringExtra("siuntiniox")
             val siuntinioY = intent.getStringExtra("siuntinioy")
             val klientoX = intent.getStringExtra("klientox")
@@ -98,7 +98,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             mGoogleMap.addMarker(MarkerOptions().position(siuntinys).title("Siuntinio vieta"))
             mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siuntinys, 15f))
             mGoogleMap.addMarker(MarkerOptions().position(klientas).title("Kliento vieta"))
-        }
+        //}
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(
