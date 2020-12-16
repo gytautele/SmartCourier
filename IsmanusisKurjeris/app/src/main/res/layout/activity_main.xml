@@ -65,8 +65,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="265dp"
+        android:layout_width="265dp"
             android:layout_height="304dp"
             android:src="@drawable/logo"
             app:layout_constraintBottom_toTopOf="@+id/packageId"

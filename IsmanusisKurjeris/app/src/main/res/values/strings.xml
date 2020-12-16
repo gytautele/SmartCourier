@@ -1,18 +1,9 @@
 <resources>
-    <string name="app_name">IsmanusisKurjeris</string>
     <string name="Prisijungti">Prisijungti</string>
-    <string name="Slaptazodis">Slaptažodis</string>
-    <string name="PrisijungimoVardas">Prisijungimo vardas</string>
     <string name="SiuntosPaieska">Siuntos paieška</string>
-    <string name="SiuntosNr">Siuntos numeris</string>
     <string name="Ieskoti">Ieškoti</string>
     <string name="Zemelapis">Žemėlapis</string>
-    <string name="Paieska">Siuntos paieška</string>
-    <string name="Nustatymai">Nustatymai</string>
-    <string name="Atsijungti">Atsijungti</string>
     <string name="Skenuoti">Skenuoti QR kodą</string>
     <string name="SiuntosInfo">Siuntos informacija</string>
-    <string name="Siuntejas">Siuntėjas</string>
-    <string name="Gavejas">Gavėjas</string>
     <string name="title_activity_maps">Map</string>
 </resources>
