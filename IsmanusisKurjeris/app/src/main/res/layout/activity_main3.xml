@@ -95,11 +95,4 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.993" />
 
-    <Button
-        android:layout_width="80dp"
-            android:layout_height="104dp"
-            android:text="Nustatimai"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/paskyra" />
-    
 </androidx.constraintlayout.widget.ConstraintLayout>
