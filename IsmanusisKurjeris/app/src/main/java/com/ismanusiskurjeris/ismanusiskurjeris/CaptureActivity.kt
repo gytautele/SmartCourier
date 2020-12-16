@@ -67,22 +67,16 @@ class CaptureActivity : AppCompatActivity() {
             .build()
         preview.setSurfaceProvider(previewView.createSurfaceProvider(null))
 
-        val imageAnalysis = ImageAnalysis.Builder()
-            .setTargetResolution(Size(1280, 720))
-            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-            .build()
-        imageAnalysis.setAnalyzer(cameraExecutor, analyzer)
+//        val imageAnalysis = ImageAnalysis.Builder()
+//            .setTargetResolution(Size(1280, 720))
+//            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+//            .build()
+//        imageAnalysis.setAnalyzer(cameraExecutor, analyzer)
 
         cameraProvider.bindToLifecycle(
             this as LifecycleOwner,
             cameraSelector,
-            imageAnalysis,
-            preview
-        )
-
-        cameraProvider.bindToLifecycle(
-            this as LifecycleOwner,
-            cameraSelector,
+            //imageAnalysis,
             preview
         )
     }

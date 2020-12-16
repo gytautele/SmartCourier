@@ -18,15 +18,10 @@ class MainActivity : AppCompatActivity() {
         val logInButton = findViewById<Button>(R.id.logInButton)
         logInButton.setOnClickListener{
 
-            val username = findViewById<EditText>(R.id.packageId) as EditText
+            val username = findViewById<EditText>(R.id.username) as EditText
             val password = findViewById<EditText>(R.id.password) as EditText
-            //Siuntimui i duombaze username.text.toString()
-            //Siuntimui i duombaze password.text.toString()
 
             val db = dbManager(this)
-//            val checkinsertdata: Boolean = db.insertuserdata(username.text.toString(), password.text.toString(), "LABAS")
-//            if (checkinsertdata == true) Toast.makeText(this@MainActivity, "New Entry Inserted", Toast.LENGTH_SHORT).show()
-//            else Toast.makeText(this@MainActivity, "New Entry Not Inserted", Toast.LENGTH_SHORT).show()
 
             val login = db.LogIn(username.text.toString(), password.text.toString())
             if (login) {
@@ -37,7 +32,6 @@ class MainActivity : AppCompatActivity() {
             else {
                 Toast.makeText(this, "Tokio vartotojo nera", Toast.LENGTH_SHORT).show();
             }
-            //Toast.makeText(this, db.addUser(username.text.toString(), password.text.toString()), Toast.LENGTH_LONG).show()
         }
     }
 }

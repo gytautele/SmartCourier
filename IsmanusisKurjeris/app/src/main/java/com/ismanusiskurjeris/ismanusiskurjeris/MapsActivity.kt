@@ -27,32 +27,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
-//    private lateinit var mMap: GoogleMap
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_maps)
-//        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-//        val mapFragment = supportFragmentManager
-//            .findFragmentById(R.id.map) as SupportMapFragment
-//        mapFragment.getMapAsync(this)
-//    }
-//
-//    override fun onMapReady(googleMap: GoogleMap) {
-//        mMap = googleMap
-//        val siuntinioX = intent.getStringExtra("siuntiniox")
-//        val siuntinioY = intent.getStringExtra("siuntinioy")
-//        val klientoX = intent.getStringExtra("klientox")
-//        val klientoY = intent.getStringExtra("klientoy")
-//
-//        val siuntinys = LatLng(siuntinioX.toDouble(), siuntinioY.toDouble())
-//        val klientas = LatLng(klientoX.toDouble(), klientoY.toDouble())
-//        mMap.addMarker(MarkerOptions().position(siuntinys).title("Siuntinio vieta"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siuntinys, 15f))
-//        mMap.addMarker(MarkerOptions().position(klientas).title("Kliento vieta"))
-//
-//    }
-
     lateinit var mGoogleMap: GoogleMap
     var mapFrag: SupportMapFragment? = null
     lateinit var mLocationRequest: LocationRequest
@@ -100,7 +74,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     public override fun onPause() {
         super.onPause()
-
         //stop location updates when Activity is no longer active
         mFusedLocationClient?.removeLocationUpdates(mLocationCallback)
     }
@@ -114,16 +87,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mLocationRequest.fastestInterval = 120000
         mLocationRequest.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
 
-        val siuntinioX = intent.getStringExtra("siuntiniox")
-        val siuntinioY = intent.getStringExtra("siuntinioy")
-        val klientoX = intent.getStringExtra("klientox")
-        val klientoY = intent.getStringExtra("klientoy")
+        if (intent.getStringExtra("siuntinioX") != null) {
+            val siuntinioX = intent.getStringExtra("siuntiniox")
+            val siuntinioY = intent.getStringExtra("siuntinioy")
+            val klientoX = intent.getStringExtra("klientox")
+            val klientoY = intent.getStringExtra("klientoy")
 
-        val siuntinys = LatLng(siuntinioX.toDouble(), siuntinioY.toDouble())
-        val klientas = LatLng(klientoX.toDouble(), klientoY.toDouble())
-        mGoogleMap.addMarker(MarkerOptions().position(siuntinys).title("Siuntinio vieta"))
-        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siuntinys, 15f))
-        mGoogleMap.addMarker(MarkerOptions().position(klientas).title("Kliento vieta"))
+            val siuntinys = LatLng(siuntinioX.toDouble(), siuntinioY.toDouble())
+            val klientas = LatLng(klientoX.toDouble(), klientoY.toDouble())
+            mGoogleMap.addMarker(MarkerOptions().position(siuntinys).title("Siuntinio vieta"))
+            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siuntinys, 15f))
+            mGoogleMap.addMarker(MarkerOptions().position(klientas).title("Kliento vieta"))
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(

@@ -68,7 +68,6 @@ class Main3Activity : AppCompatActivity() {
 
         val ieskoti = findViewById<Button>(R.id.ieskoti)
         val siuntos = findViewById<Button>(R.id.siuntos)
-        val nustatymai = findViewById<Button>(R.id.nustatymai)
         val atsijungti = findViewById<Button>(R.id.atsijungti)
         val paskyra = findViewById<Button>(R.id.paskyra)
 
@@ -77,10 +76,6 @@ class Main3Activity : AppCompatActivity() {
             startActivity(intent)
         }
         siuntos.setOnClickListener {
-            val intent = Intent(this, Main3Activity::class.java)
-            startActivity(intent)
-        }
-        nustatymai.setOnClickListener {
             val intent = Intent(this, Main3Activity::class.java)
             startActivity(intent)
         }
