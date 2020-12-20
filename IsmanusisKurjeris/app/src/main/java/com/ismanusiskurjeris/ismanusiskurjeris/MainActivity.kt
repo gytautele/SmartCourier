@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
             val username = findViewById<EditText>(R.id.username) as EditText
             val password = findViewById<EditText>(R.id.password) as EditText
+            val labas = 5
 
             val db = dbManager(this)
 
