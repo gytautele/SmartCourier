@@ -25,7 +25,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="140dp"
-                    android:text="QR Code Reader Android\nusing ML Kit"
+                    android:text="QR kodo skaitytuvas"
                     android:textAlignment="center"
                     android:textColor="#FAFAFA"
                     android:textSize="24sp" />
@@ -36,7 +36,7 @@
                     android:layout_below="@id/text_view"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="34dp"
-                    android:background="#000000" />
+                    android:background="@drawable/background_rec"/>
 
         </RelativeLayout>
 

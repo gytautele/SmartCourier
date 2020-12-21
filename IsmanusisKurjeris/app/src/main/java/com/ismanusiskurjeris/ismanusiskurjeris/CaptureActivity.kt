@@ -2,7 +2,9 @@ package com.ismanusiskurjeris.ismanusiskurjeris
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
+import com.google.zxing.integration.android.IntentIntegrator
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -11,6 +13,7 @@ import android.provider.Settings
 import android.util.Size
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
@@ -33,51 +36,26 @@ class CaptureActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture)
 
-        checkCameraPermission()
-        cameraExecutor = Executors.newSingleThreadExecutor()
-        cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-
-        cameraProviderFuture.addListener(Runnable {
-            val cameraProvider = cameraProviderFuture.get()
-            bindPreview(cameraProvider)
-        }, ContextCompat.getMainExecutor(this))
+        val scanner = IntentIntegrator(this)
+        scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+        scanner.setBeepEnabled(false)
+        scanner.initiateScan()
 
     }
-    private fun checkCameraPermission() {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.CAMERA
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            Intent().also {
-                it.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                it.data = Uri.fromParts("package", packageName, null)
-                startActivity(it)
-                finish()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK) {
+            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+            if (result != null) {
+                if (result.contents == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
+                }
+            } else {
+                super.onActivityResult(requestCode, resultCode, data)
             }
         }
-    }
-
-    @SuppressLint("UnsafeExperimentalUsageError")
-    private fun bindPreview(cameraProvider: ProcessCameraProvider) {
-        val preview: Preview = Preview.Builder()
-            .build()
-        val cameraSelector: CameraSelector = CameraSelector.Builder()
-            .requireLensFacing(CameraSelector.LENS_FACING_BACK)
-            .build()
-        preview.setSurfaceProvider(previewView.createSurfaceProvider(null))
-
-//        val imageAnalysis = ImageAnalysis.Builder()
-//            .setTargetResolution(Size(1280, 720))
-//            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-//            .build()
-//        imageAnalysis.setAnalyzer(cameraExecutor, analyzer)
-
-        cameraProvider.bindToLifecycle(
-            this as LifecycleOwner,
-            cameraSelector,
-            //imageAnalysis,
-            preview
-        )
+        val intent = Intent(this, Main2Activity::class.java)
+        startActivity(intent)
     }
 }

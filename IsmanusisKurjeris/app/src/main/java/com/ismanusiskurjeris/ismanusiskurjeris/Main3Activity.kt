@@ -84,7 +84,7 @@ class Main3Activity : AppCompatActivity() {
             startActivity(intent)
         }
         paskyra.setOnClickListener {
-            val intent = Intent(this, MapsActivity::class.java)
+            val intent = Intent(this, Main4Activity::class.java)
             startActivity(intent)
         }
     }
