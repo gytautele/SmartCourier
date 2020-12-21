@@ -21,14 +21,21 @@ public class dbManager extends SQLiteOpenHelper {
         //DB.execSQL("drop Table if exists Userdetails");
     }
 
-    public Boolean insertuserdata(String name, String contact, String dob)
+    public Boolean insertuserdata(double LocationX, double LocationY, String Status, String Details, int ID)
     {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("name", name);
-        contentValues.put("contact", contact);
-        contentValues.put("dob", dob);
-        long result=DB.insert("Userdetails", null, contentValues);
+        contentValues.put("LocationX", LocationX);
+        contentValues.put("LocationY", LocationY);
+        contentValues.put("Status", Status);
+        contentValues.put("Details", Details);
+        contentValues.put("ID", ID);
+        contentValues.put("ClientID", 1002);
+        contentValues.put("Registred", "2020-12-20 15:16:23");
+        contentValues.put("Delivered", "");
+        contentValues.put("Time_chosen", 900);
+        contentValues.put("UserID", 2);
+        long result=DB.insert("Package", null, contentValues);
         if(result==-1){
             return false;
         }else{
@@ -37,14 +44,13 @@ public class dbManager extends SQLiteOpenHelper {
     }
 
 
-    public Boolean updateuserdata(String name, String contact, String dob) {
+    public Boolean updateuserdata(String id, String status) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("contact", contact);
-        contentValues.put("dob", dob);
-        Cursor cursor = DB.rawQuery("Select * from Userdetails where name = ?", new String[]{name});
+        contentValues.put("Status", status);
+        Cursor cursor = DB.rawQuery("Select * from Package where ID = ?", new String[]{id});
         if (cursor.getCount() > 0) {
-            long result = DB.update("Userdetails", contentValues, "name=?", new String[]{name});
+            long result = DB.update("Package", contentValues, "ID=?", new String[]{id});
             if (result == -1) {
                 return false;
             } else {
@@ -84,12 +90,12 @@ public class dbManager extends SQLiteOpenHelper {
 
     public Cursor getdata (String packageID) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select Package.LocationX, Package.LocationY, ClientID from Package where ID = ? ", new String[]{packageID}, null);
+        Cursor cursor = DB.rawQuery("Select Package.LocationX, Package.LocationY, ClientID, Status, Time_chosen, Details from Package where ID = ? ", new String[]{packageID}, null);
         return cursor;
     }
     public Cursor getdata1 (String clientID) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select Name, LastName, PhoneNumber, LocationX, LocationY from Client where Client.ID = ?", new String[]{clientID}, null);
+        Cursor cursor = DB.rawQuery("Select Name, LastName, PhoneNumber, Address, LocationX, LocationY from Client where Client.ID = ?", new String[]{clientID}, null);
         return cursor;
     }
 }

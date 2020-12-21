@@ -7,4 +7,7 @@
     <string name="SiuntosInfo">Siuntos informacija</string>
     <string name="title_activity_maps">Map</string>
     <string name="Prideti">Pridėti</string>
+    <string name="Statusa">Keisti statusą</string>
+    <string name="Keisti">Keisti statusą</string>
+    <string name="Siunta">Siuntos ID</string>
 </resources>

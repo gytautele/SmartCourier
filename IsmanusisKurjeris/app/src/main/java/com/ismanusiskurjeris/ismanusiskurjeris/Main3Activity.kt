@@ -30,8 +30,9 @@ class Main3Activity : AppCompatActivity() {
         }
         val buffer = StringBuffer();
         while(res.moveToNext()){
-            buffer.append("Siuntinio X koordinate: "+res.getString(0)+"\n")
-            buffer.append("Siuntinio Y koordinate: "+res.getString(1)+"\n")
+            buffer.append("Siuntinio statusas: "+res.getString(3)+"\n")
+            buffer.append("Pasirinktas matavimosi laikas: "+res.getString(4)+"\n")
+            buffer.append("Siuntinio detalės: "+res.getString(5)+"\n")
             siuntinioX = res.getString(0)
             siuntinioY = res.getString(1)
             clientID = res.getString(2)
@@ -44,10 +45,9 @@ class Main3Activity : AppCompatActivity() {
             buffer.append("Gavejo vardas: "+res1.getString(0)+"\n")
             buffer.append("Gavejo pavarde: "+res1.getString(1)+"\n")
             buffer.append("Gavejo numeris: "+res1.getString(2)+"\n")
-            buffer.append("Gavejo X koordinate: "+res1.getString(3)+"\n")
-            buffer.append("GavejoY koordinate: "+res1.getString(4)+"\n")
-            klientoX = res1.getString(3)
-            klientoY = res1.getString(4)
+            buffer.append("Adresas: "+res1.getString(3)+"\n")
+            klientoX = res1.getString(4)
+            klientoY = res1.getString(5)
         }
 
         val builder = AlertDialog.Builder(this);

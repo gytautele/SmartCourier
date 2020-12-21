@@ -28,10 +28,6 @@ import java.util.concurrent.Executors
 
 class CaptureActivity : AppCompatActivity() {
 
-    private lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
-    private lateinit var cameraExecutor: ExecutorService
-    private lateinit var analyzer: MyImageAnalyzer
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture)
